@@ -1,0 +1,6 @@
+70 error Error: Command failed with exit code 128: git push --follow-tags --no-verify --atomic origin master
+70 error remote: Password authentication is temporarily disabled as part of a brownout. Please use a personal access token instead.
+70 error remote: Please see https://github.blog/2020-07-30-token-authentication-requirements-for-api-and-git-operations/ for more information.
+70 error fatal: unable to access 'https://github.com/marketsentiment404/pancake-toolkit.git/': The requested URL returned error: 403
+70 error     at makeError (/Users/alanayala/Documents/Defi Farms/pancake-toolkit/node_modules/execa/lib/error.js:59:11)
+70 error     at handlePromise (/Users/alanayala/Documents/Defi Farms/pancake-toolkit/node_modules/execa/index.js:114:26)
