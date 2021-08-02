@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.43.1](https://github.com/pancakeswap/pancake-toolkit/tree/master/packages/pancake-uikit/compare/@polypunks/uikit@0.43.0...@polypunks/uikit@0.43.1) (2021-08-02)
+
+**Note:** Version bump only for package @polypunks/uikit
+
+
+
+
+
 # 0.43.0 (2021-07-28)
 
 
