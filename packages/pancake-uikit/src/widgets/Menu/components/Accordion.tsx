@@ -20,15 +20,18 @@ const Container = styled.div`
   flex-direction: column;
   // Safari fix
   flex-shrink: 0;
+  position: relative;
 `;
 
 const AccordionContent = styled.div<{ isOpen: boolean; isPushed: boolean; maxHeight: number }>`
   max-height: ${({ isOpen, maxHeight }) => (isOpen ? `${maxHeight}px` : 0)};
   transition: max-height 0.3s ease-out;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-color: ${({ isOpen, isPushed }) => (isOpen && isPushed ? "rgba(133, 133, 133, 0.1)" : "transparent")};
   border-style: solid;
   border-width: 1px 0;
+  position: absolute;
+  bottom: -40px;
 `;
 
 const Accordion: React.FC<Props> = ({

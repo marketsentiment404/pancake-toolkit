@@ -11,6 +11,7 @@ interface Props {
 const PriceLink = styled.a`
   display: flex;
   align-items: center;
+  margin-right: 8px;
   svg {
     transition: transform 0.3s;
   }

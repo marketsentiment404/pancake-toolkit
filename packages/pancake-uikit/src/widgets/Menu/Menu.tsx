@@ -10,6 +10,7 @@ import UserBlock from "./components/UserBlock";
 import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
+import CakePrice from "./components/CakePrice";
 
 const Wrapper = styled.div`
   position: relative;
@@ -40,16 +41,17 @@ const BodyWrapper = styled.div`
 `;
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
-  flex-grow: 1;
+  /* flex-grow: 1;
   margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
   transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); */
   max-width: 100%;
+  margin-top: 80px;
 
-  ${({ theme }) => theme.mediaQueries.nav} {
+  /* ${({ theme }) => theme.mediaQueries.nav} {
     margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
     max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px)`};
-  }
+  } */
 `;
 
 const MobileOnlyOverlay = styled(Overlay)`
@@ -122,14 +124,6 @@ const Menu: React.FC<NavProps> = ({
           isDark={isDark}
           href={homeLink?.href ?? "/"}
         />
-        {!!login && !!logout && (
-          <Flex>
-            <UserBlock account={account} login={login} logout={logout} />
-            {profile && <Avatar profile={profile} />}
-          </Flex>
-        )}
-      </StyledNav>
-      <BodyWrapper>
         <Panel
           isPushed={isPushed}
           isMobile={isMobile}
@@ -143,11 +137,18 @@ const Menu: React.FC<NavProps> = ({
           pushNav={setIsPushed}
           links={links}
         />
-        <Inner isPushed={isPushed} showMenu={showMenu}>
-          {children}
-        </Inner>
-        <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
-      </BodyWrapper>
+        {/* <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" /> */}
+        {!!login && !!logout && (
+          <Flex>
+            <CakePrice cakePriceUsd={cakePriceUsd} />
+            <UserBlock account={account} login={login} logout={logout} />
+            {profile && <Avatar profile={profile} />}
+          </Flex>
+        )}
+      </StyledNav>
+      <Inner isPushed={isPushed} showMenu={showMenu}>
+        {children}
+      </Inner>
     </Wrapper>
   );
 };
